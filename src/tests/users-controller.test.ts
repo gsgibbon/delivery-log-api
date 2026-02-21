@@ -13,14 +13,14 @@ describe("UsersController", () => {
   // Sucesso: Cadastro de registro confirmando criação de novo usuário
   it("should create a new user successfully", async () => {
     const response = await request(app).post("/users").send({
-      name: "Duplicate User",
+      name: "Test User",
       email: "test@example.com",
       password: "123456"
     })
 
     expect(response.status).toBe(201) 
     expect(response.body).toHaveProperty("id")
-    expect(response.body.name).toBe("Duplicate User")
+    expect(response.body.name).toBe("Test User")
 
     userId = response.body.id
   })
